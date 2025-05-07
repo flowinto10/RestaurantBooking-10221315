@@ -1,6 +1,9 @@
+#include "gmock/gmock.h"
 #include "mail_sender.cpp"
 class TestableMailSender : public MailSender {
 public:
+	MOCK_METHOD((void), sendMail, (Schedule*), (override));
+#if 0
 	void sendMail(Schedule* schedule) override {
 		countSendMailMethodIsCalled++;
 	}
@@ -9,4 +12,5 @@ public:
 	}
 private:
 	int countSendMailMethodIsCalled = 0;
+#endif
 };
